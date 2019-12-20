@@ -1,0 +1,832 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        xmlns:control="clr-namespace:MultiSelectComboBox;assembly=MultiSelectComboBox"
+        xmlns:local="clr-namespace:Pancréatite"        
+        xmlns:sparrowToolkit="http://sparrowtoolkit.codeplex.com/wpf"
+        x:Class="Pancréatite.Main"        
+        mc:Ignorable="d"
+        fw:AcrylicWindow.Enabled="True" fw:AcrylicWindow.ExtendViewIntoTitleBar="True" fw:AcrylicWindow.NoiseOpacity="0.00001"  fw:AcrylicWindow.FallbackColor="Transparent" fw:AcrylicWindow.TintOpacity="0.2"  Height="750" Width="1270" WindowStyle="None" WindowStartupLocation="CenterScreen" Icon="Resources/icons8_Graduation_Cap_32.png">
+    <ScrollViewer Foreground="#EF9183" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" SnapsToDevicePixels="True">
+        <Grid Height="1224"  RenderTransformOrigin="0.374,0.545" fw:PointerTracker.Enabled="True" Background="#01FFFFFF" Margin="3" HorizontalAlignment="Center">
+            <Rectangle HorizontalAlignment="Left" Height="162" Margin="1145,948,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="80" RadiusY="15.5" RadiusX="15.5"/>
+            <Rectangle HorizontalAlignment="Left" Height="304" Margin="840,894,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="284" RadiusY="15.5" RadiusX="15.5"/>
+            <Rectangle HorizontalAlignment="Left" Height="169" Margin="10,15,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="247" RadiusY="14.833" RadiusX="14.833"/>
+            <Label Content="Nom:" HorizontalAlignment="Left" Height="24" Margin="20,24,0,0" VerticalAlignment="Top" Width="65" Foreground="White"/>
+            <Label Content="Prénom:" HorizontalAlignment="Left" Height="24" Margin="20,53,0,0" VerticalAlignment="Top" Width="59" Foreground="White"/>
+            <Label Content="N° Dossier:" HorizontalAlignment="Left" Height="24" Margin="20,82,0,0" VerticalAlignment="Top" Width="72" Foreground="White"/>
+            <Label Content="N ° Anapath:" HorizontalAlignment="Left" Height="24" Margin="20,113,0,0" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.5,0.5" Foreground="White">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="1.262"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0.242"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label Content="N° TEL:" HorizontalAlignment="Left" Height="24" Margin="20,143,0,0" VerticalAlignment="Top" Width="65" Foreground="White"/>
+            <TextBox x:Name="nom" HorizontalAlignment="Left" Height="18" Margin="110,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Background="{x:Null}" Foreground="White" CharacterCasing="Upper"/>
+            <TextBox x:Name="prenom" HorizontalAlignment="Left" Height="18" Margin="110,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Background="{x:Null}" CharacterCasing="Upper" Foreground="White"/>
+            <TextBox x:Name="ndossier" HorizontalAlignment="Left" Height="18" Margin="110,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Background="{x:Null}" Foreground="White"/>
+            <TextBox x:Name="nanapath" HorizontalAlignment="Left" Height="18" Margin="110,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Background="{x:Null}" Foreground="White"/>
+            <TextBox x:Name="ntel" HorizontalAlignment="Left" Height="18" Margin="110,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Background="{x:Null}" CharacterCasing="Upper" Foreground="White"/>
+            <Rectangle HorizontalAlignment="Left" Height="169" Margin="288,15,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="374" RadiusY="15.833" RadiusX="15.833"/>
+            <Label Content="Date d'entrée :" HorizontalAlignment="Left" Height="24" Margin="314,32,0,0" VerticalAlignment="Top" Width="88" Foreground="#FFFFFDFD"/>
+            <DatePicker x:Name="dateent" HorizontalAlignment="Left" Height="24" Margin="437,32,0,0" VerticalAlignment="Top" Width="201"/>
+            <Label Content="Date d'intervention :" HorizontalAlignment="Left" Height="24" Margin="314,86,0,0" VerticalAlignment="Top" Width="112" Foreground="White" RenderTransformOrigin="0.5,1.792"/>
+            <Label Content="Date de sortie :" HorizontalAlignment="Left" Height="24" Margin="314,140,0,0" VerticalAlignment="Top" Width="88" Foreground="#FFFFFDFD"/>
+            <DatePicker x:Name="dateint" HorizontalAlignment="Left" Height="24" Margin="437,85,0,0" VerticalAlignment="Top" Width="201"/>
+            <DatePicker x:Name="datesor" HorizontalAlignment="Left" Height="24" Margin="437,138,0,0" VerticalAlignment="Top" Width="201"/>
+            <Rectangle HorizontalAlignment="Left" Height="169" Margin="684,15,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="145" RadiusY="17.167" RadiusX="17.167"/>
+            <Label Content="Age:" HorizontalAlignment="Left" Height="25" Margin="697,28,0,0" VerticalAlignment="Top" Width="74" Foreground="White" FontSize="10"/>
+            <TextBox x:Name="age" HorizontalAlignment="Left" Height="24" Margin="794,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" PreviewTextInput="age_PreviewTextInput"/>
+            <Label Content="Poids: " HorizontalAlignment="Left" Height="24" Margin="697,93,0,0" VerticalAlignment="Top" Width="74" Foreground="White" FontSize="10"/>
+            <TextBox x:Name="poids" HorizontalAlignment="Left" Height="24" Margin="794,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" PreviewTextInput="poids_PreviewTextInput" RenderTransformOrigin="0.4,-0.375"/>
+            <Label Content="Taille en cm:" HorizontalAlignment="Left" Height="24" Margin="697,122,0,0" VerticalAlignment="Top" Width="74" Foreground="White" FontSize="10"/>
+            <TextBox x:Name="taille" HorizontalAlignment="Left" Height="24" Margin="794,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.444,2.292" PreviewTextInput="taille_PreviewTextInput"/>
+            <Label x:Name="IMC" Content="IMC = " HorizontalAlignment="Left" Height="24" Margin="690,151,0,0" VerticalAlignment="Top" Width="66" Foreground="White" FontSize="11" FontWeight="Bold" FontStyle="Italic" FontFamily="Dubai"/>
+            <Rectangle HorizontalAlignment="Left" Height="87" Margin="10,207,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="247" RadiusY="15.5" RadiusX="15.5"/>
+            <Label Content="* Diagnostic:" HorizontalAlignment="Left" Height="29" Margin="20,218,0,0" VerticalAlignment="Top" Width="92" Foreground="White" Background="{x:Null}" FontWeight="Bold"/>
+            <ComboBox x:Name="dg" SelectedValuePath="Content" HorizontalAlignment="Left" Height="20" Margin="20,256,0,0" VerticalAlignment="Top" Width="227" IsReadOnly="True">
+                <ComboBoxItem Content="Douleur+lipasemie ≥ 3NL"/>
+                <ComboBoxItem Content="Douleur+image radiologique"/>
+                <ComboBoxItem Content="Lipasemie≥3 NL +image radiologique "/>
+                <ComboBoxItem Content="Douleur + lipasemie≥3 NL+ image radiologique"/>
+                <ComboBoxItem Content="Découverte fortuite "/>
+            </ComboBox>
+            <Rectangle HorizontalAlignment="Left" Height="169" Margin="850,15,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="374" RadiusY="16.167" RadiusX="16.167"/>
+            <Label Content="* Habitudes toxiques :" HorizontalAlignment="Left" Height="28" Margin="860,30,0,0" VerticalAlignment="Top" Width="174" Background="{x:Null}" Foreground="White" FontStyle="Italic" FontWeight="Bold"/>
+            <Label Content="• Alcoolisme : " HorizontalAlignment="Left" Height="32" Margin="860,70,0,0" VerticalAlignment="Top" Width="146" Foreground="White"/>
+            <Label Content="• Tabagisme : " HorizontalAlignment="Left" Height="31" Margin="860,107,0,0" VerticalAlignment="Top" Width="122" Foreground="White"/>
+            <Label Content="• Prise médicamenteuse pancréato-toxique : " HorizontalAlignment="Left" Height="32" Margin="860,145,0,0" VerticalAlignment="Top" Width="254" Foreground="White"/>
+            <ComboBox x:Name="alcool" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1150,77,0,0" VerticalAlignment="Top" Width="62">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="tabac" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1150,115,0,0" VerticalAlignment="Top" Width="62">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="prisemed" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1150,153,0,0" VerticalAlignment="Top" Width="62">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Rectangle HorizontalAlignment="Left" Height="560" Margin="7,309,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="250" RadiusY="18.833" RadiusX="18.833"/>
+            <Label Content="* Antécédents médicaux" HorizontalAlignment="Left" Height="28" Margin="20,319,0,0" VerticalAlignment="Top" Width="196" Foreground="White" FontWeight="Bold"/>
+            <Label Content="Diabète" HorizontalAlignment="Left" Height="24" Margin="21,358,0,0" VerticalAlignment="Top" Width="80" FontSize="10" Foreground="White"/>
+            <Label Content="HTA" HorizontalAlignment="Left" Height="26" Margin="21,386,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.167,0.573" FontSize="10" Foreground="White"/>
+            <Label Content="Cardiopathie" HorizontalAlignment="Left" Height="28" Margin="21,416,0,0" VerticalAlignment="Top" Width="91" FontSize="10" Foreground="White"/>
+            <Label Content="Insuffisance respiratoire" HorizontalAlignment="Left" Height="24" Margin="21,448,0,0" VerticalAlignment="Top" Width="115" FontSize="10" Foreground="White"/>
+            <Label Content="Insuffisance rénale" HorizontalAlignment="Left" Height="26" Margin="20,476,0,0" VerticalAlignment="Top" Width="110" FontSize="10" Foreground="White"/>
+            <Label Content="Insuffisance hépatique" HorizontalAlignment="Left" Height="28" Margin="20,506,0,0" VerticalAlignment="Top" Width="116" FontSize="10" Foreground="White"/>
+            <Label Content="Adénome para-thyroidien " HorizontalAlignment="Left" Height="26" Margin="20,534,0,0" VerticalAlignment="Top" Width="147" FontSize="10" Foreground="White"/>
+            <Label Content="Maladie inflam. du tube dig." HorizontalAlignment="Left" Height="26" Margin="21,565,0,0" VerticalAlignment="Top" Width="146" FontSize="10" Foreground="White"/>
+            <Label Content="Colique hépatique " HorizontalAlignment="Left" Height="29" Margin="21,592,0,0" VerticalAlignment="Top" Width="138" FontSize="10" Foreground="White"/>
+            <Label Content="Lithiase vésiculaire " HorizontalAlignment="Left" Height="23" Margin="21,621,0,0" VerticalAlignment="Top" Width="118" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="diabète" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,363,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="hta" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,391,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="cardiopathie" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,420,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="insufresp" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,453,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="insufrenale" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,480,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="insufhep" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,507,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="adéparathy" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,537,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="mici" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,569,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="coliquehep" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,598,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="lithiasevésic" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,626,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Label Content="Lithiase de la VBP" HorizontalAlignment="Left" Height="28" Margin="21,649,0,0" VerticalAlignment="Top" Width="115" FontSize="10" Foreground="White"/>
+            <Label Content="Lithiase intra-hépatique " HorizontalAlignment="Left" Height="26" Margin="21,678,0,0" VerticalAlignment="Top" Width="118" FontSize="10" Foreground="White"/>
+            <Label Content="Pancréatite aigue " HorizontalAlignment="Left" Height="24" Margin="21,708,0,0" VerticalAlignment="Top" Width="118" FontSize="10" Foreground="White"/>
+            <Label Content="Pancréatite chronique  " HorizontalAlignment="Left" Height="23" Margin="21,740,0,0" VerticalAlignment="Top" Width="115" FontSize="10" Foreground="White"/>
+            <Label Content="Pancréatite aigue post-CPRE " HorizontalAlignment="Left" Height="31" Margin="20,767,0,0" VerticalAlignment="Top" Width="138" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="lithiasevbp" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,653,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="lithiaseintra" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,681,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="pancaigue" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,712,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="pancchro" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,745,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="pancpostcpre" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,771,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Label Content="* Antécédents Chirurgicaux :  "  HorizontalAlignment="Left" Height="31" Margin="20,802,0,0" VerticalAlignment="Top" Width="166" Foreground="White"/>
+            <ComboBox x:Name="atcdchir" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="43,838,0,0" VerticalAlignment="Top" Width="173">
+                <ComboBoxItem Content="Aucun"/>
+                <ComboBoxItem Content="Chirurgie digestive"/>
+                <ComboBoxItem Content="Extra digestive "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Rectangle HorizontalAlignment="Left" Height="336" Margin="288,207,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="374" RadiusY="15.5" RadiusX="15.5"/>
+            <Label Content="* Clinique" HorizontalAlignment="Left" Height="24" Margin="300,218,0,0" VerticalAlignment="Top" Width="88" FontSize="10" FontWeight="Bold" FontStyle="Italic" Foreground="White"/>
+            <Label Content="- Début de la symptomatologie" HorizontalAlignment="Left" Height="24" Margin="300,242,0,0" VerticalAlignment="Top" Width="183" FontSize="10" Foreground="White"/>
+            <Label Content="- Signes généraux : " HorizontalAlignment="Left" Height="24" Margin="300,266,0,0" VerticalAlignment="Top" Width="183" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="• Fièvre " HorizontalAlignment="Left" Height="24" Margin="300,293,0,0" VerticalAlignment="Top" Width="126" FontSize="10" Foreground="White"/>
+            <Label Content="• Fréquence cardiaque " HorizontalAlignment="Left" Height="24" Margin="300,317,0,0" VerticalAlignment="Top" Width="126" FontSize="10" Foreground="White"/>
+            <Label Content="• Fréquence respiratoire " HorizontalAlignment="Left" Height="24" Margin="300,341,0,0" VerticalAlignment="Top" Width="126" FontSize="10" Foreground="White"/>
+            <Label Content="- Signes fonctionnels " HorizontalAlignment="Left" Height="24" Margin="300,365,0,0" VerticalAlignment="Top" Width="126" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="• Douleur " HorizontalAlignment="Left" Height="24" Margin="300,389,0,0" VerticalAlignment="Top" Width="126" FontSize="10" Foreground="White"/>
+            <Label Content="• Nausées  " HorizontalAlignment="Left" Height="24" Margin="300,413,0,0" VerticalAlignment="Top" Width="126" FontSize="10" Foreground="White"/>
+            <Label Content="• Vomissements " HorizontalAlignment="Left" Height="24" Margin="300,437,0,0" VerticalAlignment="Top" Width="126" FontSize="10" Foreground="White"/>
+            <Label Content="• Arrêt des matières et des gaz " HorizontalAlignment="Left" Height="24" Margin="300,461,0,0" VerticalAlignment="Top" Width="150" FontSize="10" Foreground="White"/>
+            <Label Content="• Distension abdominale  " HorizontalAlignment="Left" Height="24" Margin="300,485,0,0" VerticalAlignment="Top" Width="150" FontSize="10" Foreground="White"/>
+            <Label Content="• Syndrome de choléstase clinique " HorizontalAlignment="Left" Height="24" Margin="300,509,0,0" VerticalAlignment="Top" Width="165" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="douleur" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,393,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="nausée" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,418,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="vomissement" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,442,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="arretdesmat" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,465,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="distensionfx" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,488,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="sdcholestase" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,511,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="debutsymp" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,242,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="&lt;6h"/>
+                <ComboBoxItem Content="6-12H "/>
+                <ComboBoxItem Content="12-24h"/>
+                <ComboBoxItem Content="&gt; 24h"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="fièvre" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,298,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="normale"/>
+                <ComboBoxItem Content="37.5 – 38.5 "/>
+                <ComboBoxItem Content="38.6 - 40"/>
+                <ComboBoxItem Content="sup 40"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="fc" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,322,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="&lt;50 "/>
+                <ComboBoxItem Content="entre 50 et 89"/>
+                <ComboBoxItem Content="entre 90 et 120"/>
+                <ComboBoxItem Content="&gt;120"/>
+            </ComboBox>
+            <ComboBox x:Name="fr" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,346,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="&lt;20 "/>
+                <ComboBoxItem Content="entre 20 et 24"/>
+                <ComboBoxItem Content="entre 25 et 29"/>
+                <ComboBoxItem Content="&gt;30"/>
+            </ComboBox>
+            <Rectangle HorizontalAlignment="Left" Height="450" Margin="684,207,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="286" RadiusY="15.5" RadiusX="15.5"/>
+            <Label Content="* Examen abdominal a l'admission" HorizontalAlignment="Left" Height="24" Margin="697,223,0,0" VerticalAlignment="Top" Width="183" FontSize="10" FontWeight="Bold" FontStyle="Italic" Foreground="White"/>
+            <Label Content="• Inspection " HorizontalAlignment="Left" Height="24" Margin="697,242,0,0" VerticalAlignment="Top" Width="183" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="- Position en chien de fusille " HorizontalAlignment="Left" Height="24" Margin="697,266,0,0" VerticalAlignment="Top" Width="160" FontSize="10" Foreground="White"/>
+            <Label Content="- Distension abdominale" HorizontalAlignment="Left" Height="24" Margin="697,290,0,0" VerticalAlignment="Top" Width="168" FontSize="10" Foreground="White"/>
+            <Label Content="- Cicatrice de laparotomie " HorizontalAlignment="Left" Height="24" Margin="697,314,0,0" VerticalAlignment="Top" Width="168" FontSize="10" Foreground="White"/>
+            <Label Content="- Signe de Cullen " HorizontalAlignment="Left" Height="24" Margin="697,336,0,0" VerticalAlignment="Top" Width="183" FontSize="10" Foreground="White"/>
+            <Label Content="- Signe de Grey-Turner " HorizontalAlignment="Left" Height="24" Margin="697,359,0,0" VerticalAlignment="Top" Width="168" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="positionchien" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,266,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="distensioninspection" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,290,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="cicatricelapa" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,316,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="signecullen" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,340,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="signegrey" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,362,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Label Content="• Palpation" HorizontalAlignment="Left" Height="24" Margin="697,386,0,0" VerticalAlignment="Top" Width="168" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="- Sensibilité localisée " HorizontalAlignment="Left" Height="24" Margin="697,410,0,0" VerticalAlignment="Top" Width="168" FontSize="10" Foreground="White"/>
+            <Label Content="- Sensibilité généralisée " HorizontalAlignment="Left" Height="24" Margin="697,434,0,0" VerticalAlignment="Top" Width="168" FontSize="10" Foreground="White"/>
+            <Label Content="- Défense localisée " HorizontalAlignment="Left" Height="24" Margin="697,459,0,0" VerticalAlignment="Top" Width="168" FontSize="10" Foreground="White"/>
+            <Label Content="- Défense généralisée " HorizontalAlignment="Left" Height="24" Margin="697,485,0,0" VerticalAlignment="Top" Width="168" FontSize="10" Foreground="White"/>
+            <Label Content="- Contracture" HorizontalAlignment="Left" Height="24" Margin="697,509,0,0" VerticalAlignment="Top" Width="168" FontSize="10" Foreground="White"/>
+            <Label Content="- Masse palpable " HorizontalAlignment="Left" Height="24" Margin="697,534,0,0" VerticalAlignment="Top" Width="168" FontSize="10" Foreground="White"/>
+            <Label Content="- Signe de Murphy " HorizontalAlignment="Left" Height="24" Margin="697,558,0,0" VerticalAlignment="Top" Width="168" FontSize="10" Foreground="White"/>
+            <Label Content="• Percussion" HorizontalAlignment="Left" Height="24" Margin="697,582,0,0" VerticalAlignment="Top" Width="168" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="- Matité des flancs " HorizontalAlignment="Left" Height="24" Margin="697,604,0,0" VerticalAlignment="Top" Width="168" FontSize="10" Foreground="White"/>
+            <Label Content="- Tympanisme" HorizontalAlignment="Left" Height="24" Margin="697,627,0,0" VerticalAlignment="Top" Width="168" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="sensibilitegen" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,437,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="defencegen" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,489,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="contracture" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,513,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="massepalpable" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,537,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="signemurphy" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,561,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="(+) "/>
+                <ComboBoxItem Content="(-) "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="matiteeflanc" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,602,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="tympanisme" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,628,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="sensibiliteloc" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,410,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Epigastrique"/>
+                <ComboBoxItem Content="HCD "/>
+                <ComboBoxItem Content="HCG"/>
+                <ComboBoxItem Content="Péri-ombilicale "/>
+                <ComboBoxItem Content="Flanc droit "/>
+                <ComboBoxItem Content="Flanc gauche "/>
+                <ComboBoxItem Content="Aucune"/>
+            </ComboBox>
+            <ComboBox x:Name="defenceloc" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,463,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Epigastrique"/>
+                <ComboBoxItem Content="HCD "/>
+                <ComboBoxItem Content="HCG"/>
+                <ComboBoxItem Content="Péri-ombilicale "/>
+                <ComboBoxItem Content="Flanc droit "/>
+                <ComboBoxItem Content="Flanc gauche "/>
+                <ComboBoxItem Content="Aucune"/>
+            </ComboBox>
+            <Rectangle HorizontalAlignment="Left" Height="304" Margin="288,565,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="374" RadiusY="15.5" RadiusX="15.5"/>
+            <Label Content="* Bilan étiologique à l'admission " HorizontalAlignment="Left" Height="26" Margin="300,584,0,0" VerticalAlignment="Top" Width="198" FontStyle="Italic" FontWeight="Bold" Foreground="White"/>
+            <Label Content="• Bilan hépatique " HorizontalAlignment="Left" Height="26" Margin="300,633,0,0" VerticalAlignment="Top" Width="169" FontSize="10" Foreground="White"/>
+            <Label Content="• Calcémie" HorizontalAlignment="Left" Height="26" Margin="300,659,0,0" VerticalAlignment="Top" Width="169" FontSize="10" Foreground="White"/>
+            <Label Content="• TG" HorizontalAlignment="Left" Height="26" Margin="300,684,0,0" VerticalAlignment="Top" Width="169" FontSize="10" Foreground="White"/>
+            <Label Content="• Echographie abdominale " HorizontalAlignment="Left" Height="26" Margin="300,714,0,0" VerticalAlignment="Top" Width="169" FontSize="10" Foreground="White"/>
+            <Label Content="- Vésicule biliaire " HorizontalAlignment="Left" Height="26" Margin="314,746,0,0" VerticalAlignment="Top" Width="169" FontSize="10" Foreground="White"/>
+            <Label Content="- Paroi vésiculaire " HorizontalAlignment="Left" Height="26" Margin="314,772,0,0" VerticalAlignment="Top" Width="169" FontSize="10" Foreground="White"/>
+            <Label Content="- VBP" HorizontalAlignment="Left" Height="26" Margin="314,798,0,0" VerticalAlignment="Top" Width="169" FontSize="10" Foreground="White"/>
+            <Label Content="- VBIH" HorizontalAlignment="Left" Height="26" Margin="314,824,0,0" VerticalAlignment="Top" Width="169" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="bilanhepatique" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,638,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Normale "/>
+                <ComboBoxItem Content="Syndrome de choléstase"/>
+                <ComboBoxItem Content="Autres "/>
+            </ComboBox>
+            <ComboBox x:Name="calcemie" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,666,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Normale "/>
+                <ComboBoxItem Content="Hypercalcémie"/>
+                <ComboBoxItem Content="Hypocalcémie "/>
+                <ComboBoxItem Content="NP "/>
+            </ComboBox>
+            <ComboBox x:Name="TG" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,691,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Normaux "/>
+                <ComboBoxItem Content="&gt;10g /l "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="echoabd" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,721,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="echoabd_SelectionChanged">
+                <ComboBoxItem Content="oui"/>
+                <ComboBoxItem Content="non "/>
+            </ComboBox>
+            <ComboBox x:Name="vesiculebiliaire" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,751,0,0" VerticalAlignment="Top" Width="61" IsEnabled="False" SelectionChanged="vesiculebiliaire_SelectionChanged">
+                <ComboBoxItem Content="Microlthiasique "/>
+                <ComboBoxItem Content="Macrolithiasique "/>
+                <ComboBoxItem Content="Micro et macrolithiasique"/>
+                <ComboBoxItem Content="Alithiasique "/>
+                <ComboBoxItem Content="Autres"/>
+            </ComboBox>
+            <ComboBox x:Name="paroivesiculaire" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,777,0,0" VerticalAlignment="Top" Width="61" IsEnabled="False" SelectionChanged="paroivesiculaire_SelectionChanged">
+                <ComboBoxItem Content="Fine "/>
+                <ComboBoxItem Content="Epaissie "/>
+                <ComboBoxItem Content="Autres"/>
+            </ComboBox>
+            <ComboBox x:Name="VBP" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,805,0,0" VerticalAlignment="Top" Width="61" IsEnabled="False" SelectionChanged="VBP_SelectionChanged">
+                <ComboBoxItem Content="Fine "/>
+                <ComboBoxItem Content="Dilatée en amont d'un calcul "/>
+                <ComboBoxItem Content="Dilatée sans visualisation d'obstacle "/>
+                <ComboBoxItem Content="Autres"/>
+            </ComboBox>
+            <ComboBox x:Name="VBIH" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="577,829,0,0" VerticalAlignment="Top" Width="61" IsEnabled="False" SelectionChanged="VBIH_SelectionChanged">
+                <ComboBoxItem Content="Non dilatées "/>
+                <ComboBoxItem Content="Dilatées  "/>
+                <ComboBoxItem Content="Autres"/>
+            </ComboBox>
+            <Rectangle HorizontalAlignment="Left" Height="292" Margin="986,207,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="238" RadiusY="15.5" RadiusX="15.5"/>
+            <Label Content="* Evaluation de la sévérité " HorizontalAlignment="Left" Height="24" Margin="996,223,0,0" VerticalAlignment="Top" Width="194" FontSize="10" FontWeight="Bold" FontStyle="Italic" Foreground="White"/>
+            <Label Content="• SIRS" HorizontalAlignment="Left" Height="24" Margin="996,245,0,0" VerticalAlignment="Top" Width="194" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="- SIRS à l'admission " HorizontalAlignment="Left" Height="24" Margin="996,270,0,0" VerticalAlignment="Top" Width="118" FontSize="10" Foreground="White"/>
+            <Label Content="- SIRS à 48H " HorizontalAlignment="Left" Height="24" Margin="996,294,0,0" VerticalAlignment="Top" Width="118" FontSize="10" Foreground="White"/>
+            <Label Content="• CRP" HorizontalAlignment="Left" Height="24" Margin="996,421,0,0" VerticalAlignment="Top" Width="63" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="• TDM Abdominale " HorizontalAlignment="Left" Height="24" Margin="996,320,0,0" VerticalAlignment="Top" Width="128" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="- Classification de BALTHAZAR  " HorizontalAlignment="Left" Height="24" Margin="996,344,0,0" VerticalAlignment="Top" Width="149" FontSize="10" Foreground="White"/>
+            <Label Content="- Computed Tomography Severty Index (CTSI) " HorizontalAlignment="Left" Height="24" Margin="996,370,0,0" VerticalAlignment="Top" Width="216" FontSize="10" Foreground="White"/>
+            <Label Content="• Hématocrite" HorizontalAlignment="Left" Height="24" Margin="996,442,0,0" VerticalAlignment="Top" Width="82" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="• TLT" HorizontalAlignment="Left" Height="24" Margin="996,465,0,0" VerticalAlignment="Top" Width="82" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Rectangle HorizontalAlignment="Left" Height="188" Margin="686,681,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="284" RadiusY="15.5" RadiusX="15.5"/>
+            <ComboBox x:Name="TDM" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1150,320,0,0" VerticalAlignment="Top" Width="61" SelectionChanged="TDM_SelectionChanged">
+                <ComboBoxItem Content="oui"/>
+                <ComboBoxItem Content="non "/>
+            </ComboBox>
+            <ComboBox x:Name="balthazard" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1150,346,0,0" VerticalAlignment="Top" Width="61" IsEnabled="False" SelectionChanged="balthazard_SelectionChanged">
+                <ComboBoxItem Content="A  "/>
+                <ComboBoxItem Content="B  "/>
+                <ComboBoxItem Content="C "/>
+                <ComboBoxItem Content="D "/>
+            </ComboBox>
+            <ComboBox x:Name="CTSI" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1081,395,0,0" VerticalAlignment="Top" Width="61" IsEnabled="False" SelectionChanged="CTSI_SelectionChanged">
+                <ComboBoxItem Content="&lt;3  "/>
+                <ComboBoxItem Content="4-6 "/>
+                <ComboBoxItem Content="7-10 "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="CRP" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1150,424,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="&lt;6 "/>
+                <ComboBoxItem Content="6-24 "/>
+                <ComboBoxItem Content="25-96  "/>
+                <ComboBoxItem Content="97-150 "/>
+                <ComboBoxItem Content="&gt;150"/>
+            </ComboBox>
+            <ComboBox x:Name="hematocrite" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1150,447,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="35-44"/>
+                <ComboBoxItem Content="&lt;35 "/>
+                <ComboBoxItem Content="&gt;44 "/>
+            </ComboBox>
+            <ComboBox x:Name="TLT" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1150,471,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Normal"/>
+                <ComboBoxItem Content="Epanchement pleural"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="sirsadmission" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1150,271,0,0" VerticalAlignment="Top" Width="62">
+                <ComboBoxItem Content="SIRS à 4  "/>
+                <ComboBoxItem Content="SIRS à 3 "/>
+                <ComboBoxItem Content="SIRS à 2 "/>
+                <ComboBoxItem Content="SIRS à 1 "/>
+                <ComboBoxItem Content="SIRS à 0"/>
+            </ComboBox>
+            <ComboBox x:Name="sirs48" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1150,294,0,0" VerticalAlignment="Top" Width="62">
+                <ComboBoxItem Content="SIRS à 4  "/>
+                <ComboBoxItem Content="SIRS à 3 "/>
+                <ComboBoxItem Content="SIRS à 2 "/>
+                <ComboBoxItem Content="SIRS à 1 "/>
+                <ComboBoxItem Content="SIRS à 0"/>
+            </ComboBox>
+            <Label Content="* Biologie" HorizontalAlignment="Left" Height="23" Margin="698,681,0,0" VerticalAlignment="Top" Width="82" FontWeight="Bold" FontStyle="Italic" FontSize="10" Foreground="White"/>
+            <Label Content="- GB " HorizontalAlignment="Left" Height="23" Margin="698,703,0,0" VerticalAlignment="Top" Width="82" FontSize="10" Foreground="White"/>
+            <Label Content="- Urée " HorizontalAlignment="Left" Height="23" Margin="698,727,0,0" VerticalAlignment="Top" Width="82" FontSize="10" Foreground="White"/>
+            <Label Content="- Créatinémie" HorizontalAlignment="Left" Height="23" Margin="698,750,0,0" VerticalAlignment="Top" Width="82" FontSize="10" Foreground="White"/>
+            <Label Content="- Ionogramme" HorizontalAlignment="Left" Height="23" Margin="698,777,0,0" VerticalAlignment="Top" Width="94" FontSize="10" Foreground="White"/>
+            <Label Content="&#xF0D8; Kaliémie" HorizontalAlignment="Left" Height="23" Margin="723,803,0,0" VerticalAlignment="Top" Width="94" FontSize="10" Foreground="White"/>
+            <Label Content="&#xF0D8; Natrémie" HorizontalAlignment="Left" Height="23" Margin="723,832,0,0" VerticalAlignment="Top" Width="94" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="kaliemie" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,806,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Correcte "/>
+                <ComboBoxItem Content="Hypokaliémie"/>
+                <ComboBoxItem Content="Hyperkaliémie"/>
+            </ComboBox>
+            <ComboBox x:Name="natremie" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="898,836,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Correcte "/>
+                <ComboBoxItem Content="Hypokaliémie"/>
+                <ComboBoxItem Content="Hyperkaliémie"/>
+            </ComboBox>
+            <ComboBox x:Name="GB" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="899,708,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="&lt; 10000"/>
+                <ComboBoxItem Content="10000 - 15000"/>
+                <ComboBoxItem Content="15000 – 18000"/>
+                <ComboBoxItem Content="&gt;18000"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <TextBox x:Name="uree" HorizontalAlignment="Left" Height="14" Margin="898,736,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" FontSize="10"/>
+            <TextBox x:Name="creatinemie" HorizontalAlignment="Left" Height="14" Margin="898,758,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61" FontSize="10"/>
+            <Rectangle HorizontalAlignment="Left" Height="356" Margin="987,513,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="238" RadiusY="15.5" RadiusX="15.5"/>
+            <Label Content="* Traitement" HorizontalAlignment="Left" Height="26" Margin="996,530,0,0" VerticalAlignment="Top" Width="106" FontSize="10" FontStyle="Italic" FontWeight="Bold" Foreground="White"/>
+            <Label Content="- Allergie aux ATB " HorizontalAlignment="Left" Height="26" Margin="996,554,0,0" VerticalAlignment="Top" Width="106" FontSize="10" Foreground="White"/>
+            <Label Content="- Antibiothérapie" HorizontalAlignment="Left" Height="26" Margin="996,580,0,0" VerticalAlignment="Top" Width="106" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="allergieatb" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1150,554,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="atb" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1151,582,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Label Content="- Type d'ATB " HorizontalAlignment="Left" Height="26" Margin="996,606,0,0" VerticalAlignment="Top" Width="106" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="typeatb" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1150,609,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="1= claforan"/>
+                <ComboBoxItem Content="2 = flagyl"/>
+                <ComboBoxItem Content="3 = gentamycine"/>
+                <ComboBoxItem Content="4 = cefacidal"/>
+                <ComboBoxItem Content="5 = tiénam"/>
+                <ComboBoxItem Content="6 = invanz"/>
+                <ComboBoxItem Content="7 = ciprofloxacine"/>
+                <ComboBoxItem Content="8 = vancomycine"/>
+                <ComboBoxItem Content="9 = 1 + 2"/>
+                <ComboBoxItem Content="10 = 2 + 4"/>
+                <ComboBoxItem Content="11 = 2 + 7"/>
+                <ComboBoxItem Content="12 = 1 + 2 + 3 "/>
+                <ComboBoxItem Content="13= cefizox"/>
+            </ComboBox>
+            <Label Content="- Antalgiques" HorizontalAlignment="Left" Height="26" Margin="996,633,0,0" VerticalAlignment="Top" Width="106" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="- Paracétamol" HorizontalAlignment="Left" Height="26" Margin="996,661,0,0" VerticalAlignment="Top" Width="106" FontSize="10" Foreground="White"/>
+            <Label Content="- Acupan" HorizontalAlignment="Left" Height="26" Margin="996,683,0,0" VerticalAlignment="Top" Width="106" FontSize="10" Foreground="White"/>
+            <Label Content="- Temgésic" HorizontalAlignment="Left" Height="26" Margin="996,707,0,0" VerticalAlignment="Top" Width="106" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="paracetamol" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1151,666,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="acupan" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1151,689,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="tamgesic" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1151,712,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Label Content="&#xF0D8; Disparition de la douleur " HorizontalAlignment="Left" Height="26" Margin="996,754,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Foreground="White"/>
+            <Label Content="&#xF0D8; Reprise de l'alimentation orale " HorizontalAlignment="Left" Height="26" Margin="996,780,0,0" VerticalAlignment="Top" Width="153" FontSize="10" Foreground="White"/>
+            <Label Content="&#xF0D8; Reprise de la douleur " HorizontalAlignment="Left" Height="26" Margin="996,808,0,0" VerticalAlignment="Top" Width="146" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="disparitiondlr" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1151,754,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="repriseorale" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1151,785,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="reprisedlr" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1151,814,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Rectangle HorizontalAlignment="Left" Height="304" Margin="7,894,0,0" Stroke="#FFF28C81" VerticalAlignment="Top" Width="800" RadiusY="15.5" RadiusX="15.5"/>
+            <Label Content="* Traitement Chirurgical" HorizontalAlignment="Left" Height="33" Margin="20,905,0,0" VerticalAlignment="Top" Width="178" FontSize="10" FontWeight="Bold" FontStyle="Italic" Foreground="White"/>
+            <Label Content="• Dans la même hospitalisation " HorizontalAlignment="Left" Height="24" Margin="21,938,0,0" VerticalAlignment="Top" Width="160" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <ComboBox x:Name="chirmemehosp" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,941,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+            </ComboBox>
+            <Label Content="- Intervention" HorizontalAlignment="Left" Height="24" Margin="29,964,0,0" VerticalAlignment="Top" Width="129" FontSize="10" Foreground="White"/>
+            <Label Content="- Durée de l'intervention " HorizontalAlignment="Left" Height="24" Margin="29,988,0,0" VerticalAlignment="Top" Width="143" FontSize="10" Foreground="White"/>
+            <Label Content="- Exploration" HorizontalAlignment="Left" Height="24" Margin="29,1012,0,0" VerticalAlignment="Top" Width="129" FontSize="10" Foreground="White"/>
+            <Label Content="• Pédiculite" HorizontalAlignment="Left" Height="23" Margin="43,1052,0,0" VerticalAlignment="Top" Width="124" FontSize="10" Foreground="White"/>
+            <Label Content="• Adhérence " HorizontalAlignment="Left" Height="23" Margin="43,1075,0,0" VerticalAlignment="Top" Width="124" FontSize="10" Foreground="White"/>
+            <Label Content="• Fistule cholecysto-duodénal" HorizontalAlignment="Left" Height="23" Margin="43,1098,0,0" VerticalAlignment="Top" Width="140" FontSize="10" Foreground="White"/>
+            <Label Content="• VB" HorizontalAlignment="Left" Height="23" Margin="43,1121,0,0" VerticalAlignment="Top" Width="140" FontSize="10" Foreground="White"/>
+            <Label Content="• VBP" HorizontalAlignment="Left" Height="23" Margin="43,1144,0,0" VerticalAlignment="Top" Width="140" FontSize="10" Foreground="White"/>
+            <Label Content="• Canal cystique " HorizontalAlignment="Left" Height="23" Margin="43,1167,0,0" VerticalAlignment="Top" Width="140" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="intervention" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,968,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Cœlioscopique"/>
+                <ComboBoxItem Content="Laparotomie"/>
+                <ComboBoxItem Content="Conversion "/>
+            </ComboBox>
+            <ComboBox x:Name="dureeintervention" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,995,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="&lt; 1h"/>
+                <ComboBoxItem Content="1h – 2h"/>
+                <ComboBoxItem Content="&gt; 2h "/>
+            </ComboBox>
+            <Label Content="• Paroi" HorizontalAlignment="Left" Height="23" Margin="43,1032,0,0" VerticalAlignment="Top" Width="124" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="expparoi" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,1033,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Epaissie"/>
+                <ComboBoxItem Content="Fine"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="pediculite" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,1056,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+            </ComboBox>
+            <ComboBox x:Name="adherence" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,1079,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Epiploique "/>
+                <ComboBoxItem Content="Duodénale "/>
+                <ComboBoxItem Content="Gastrique "/>
+            </ComboBox>
+            <ComboBox x:Name="fistule" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,1103,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="expvb" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,1126,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Cholecystite"/>
+                <ComboBoxItem Content="Hydro cholecystite "/>
+                <ComboBoxItem Content="Pyocholecystite"/>
+            </ComboBox>
+            <ComboBox x:Name="expvbp" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,1149,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Fine"/>
+                <ComboBoxItem Content="Dilatée "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="expcanalcys" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="186,1171,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Fin "/>
+                <ComboBoxItem Content="Dilaté"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Label Content="• Cholécystectomie" HorizontalAlignment="Left" Height="26" Margin="288,916,0,0" VerticalAlignment="Top" Width="123" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="cholecystectomie" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="449,919,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Facile"/>
+                <ComboBoxItem Content="Difficile"/>
+            </ComboBox>
+            <Label Content="• Geste effectué " HorizontalAlignment="Left" Height="26" Margin="288,944,0,0" VerticalAlignment="Top" Width="123" FontSize="10" Foreground="White"/>
+            <Label Content="• Individualisation des éléments biliaires et vx " HorizontalAlignment="Left" Height="26" Margin="288,969,0,0" VerticalAlignment="Top" Width="210" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="gesteeffectue" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="449,945,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Cholecystectomie totale "/>
+                <ComboBoxItem Content="Cholecystectomie partielle "/>
+                <ComboBoxItem Content="CST avec drainage RC "/>
+                <ComboBoxItem Content="CSP avec drainage TC "/>
+                <ComboBoxItem Content="CST avec drainage de KEHR "/>
+                <ComboBoxItem Content="CSP avec drainage de KEHR"/>
+            </ComboBox>
+            <Label Content="• Gestes associés:" HorizontalAlignment="Left" Height="26" Margin="288,1002,0,0" VerticalAlignment="Top" Width="100" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="• Complications per opératoire " HorizontalAlignment="Left" Height="26" Margin="288,1028,0,0" VerticalAlignment="Top" Width="151" FontSize="10" Foreground="White"/>
+            <Label Content="• Geste en rapport avec le traumatisme VBP " HorizontalAlignment="Left" Height="26" Margin="288,1054,0,0" VerticalAlignment="Top" Width="210" FontSize="10" Foreground="White"/>
+            <Label Content="• Cholangiographie per opératoire " HorizontalAlignment="Left" Height="26" Margin="288,1108,0,0" VerticalAlignment="Top" Width="162" FontSize="10" Foreground="White"/>
+            <Label Content="• Drainage per opératoire " HorizontalAlignment="Left" Height="26" Margin="288,1134,0,0" VerticalAlignment="Top" Width="151" FontSize="10" Foreground="White"/>
+            <Label Content="• Conversion" HorizontalAlignment="Left" Height="26" Margin="288,1160,0,0" VerticalAlignment="Top" Width="151" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="indivudialisation" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="449,995,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Facile "/>
+                <ComboBoxItem Content="Difficile "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="compperop" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="449,1030,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Aucune "/>
+                <ComboBoxItem Content="Hémorragie "/>
+                <ComboBoxItem Content="Plaie latérale de la VBP "/>
+                <ComboBoxItem Content="Traumatisme complet VBP "/>
+                <ComboBoxItem Content="Plaie digestive "/>
+                <ComboBoxItem Content="NP "/>
+                <ComboBoxItem Content="Autres "/>
+            </ComboBox>
+            <ComboBox x:Name="gestetrmvbp" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="332,1080,0,0" VerticalAlignment="Top" Width="118">
+                <ComboBoxItem Content="Aucun "/>
+                <ComboBoxItem Content="Suture simple "/>
+                <ComboBoxItem Content="Suture avec drainage "/>
+                <ComboBoxItem Content="Suture bout à bout "/>
+                <ComboBoxItem Content="Drainage externe "/>
+                <ComboBoxItem Content="Anastomose bilio digestive "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="cholangioperop" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="450,1112,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="drainageperop" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="450,1139,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Aucun "/>
+                <ComboBoxItem Content="Trancystique "/>
+                <ComboBoxItem Content="Trans choledocien"/>
+                <ComboBoxItem Content="Sous hépatique "/>
+            </ComboBox>
+            <ComboBox x:Name="conversion" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="449,1165,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui  "/>
+                <ComboBoxItem Content="non "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Label Content="• Motif de conversion " HorizontalAlignment="Left" Height="26" Margin="577,916,0,0" VerticalAlignment="Top" Width="123" FontSize="10" Foreground="White"/>
+            <Label Content="• Durée entre le diagnostic et le trt chirurgical " HorizontalAlignment="Left" Height="26" Margin="577,948,0,0" VerticalAlignment="Top" Width="215" FontSize="10" Foreground="White"/>
+            <Label Content="• Suite opératoires " HorizontalAlignment="Left" Height="26" Margin="577,990,0,0" VerticalAlignment="Top" Width="123" FontSize="10" Foreground="White"/>
+            <Label Content="• Complications post opératoire précoces " HorizontalAlignment="Left" Height="26" Margin="577,1017,0,0" VerticalAlignment="Top" Width="194" FontSize="10" Foreground="White"/>
+            <Label Content="• Complications post opératoire tardives " HorizontalAlignment="Left" Height="26" Margin="577,1065,0,0" VerticalAlignment="Top" Width="194" FontSize="10" Foreground="White"/>
+            <Label Content="• Cause de décès " HorizontalAlignment="Left" Height="26" Margin="577,1111,0,0" VerticalAlignment="Top" Width="113" FontSize="10" Foreground="White"/>
+            <Label Content="• Séjours hospitaliers " HorizontalAlignment="Left" Height="26" Margin="577,1136,0,0" VerticalAlignment="Top" Width="133" FontSize="10" Foreground="White"/>
+            <Label Content="• Séjours post opératoire " HorizontalAlignment="Left" Height="26" Margin="577,1163,0,0" VerticalAlignment="Top" Width="133" FontSize="10" Foreground="White"/>
+            <Label Content="• TRT de sortie " HorizontalAlignment="Left" Height="24" Margin="859,907,0,0" VerticalAlignment="Top" Width="123" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="- Antibiotique" HorizontalAlignment="Left" Height="24" Margin="883,934,0,0" VerticalAlignment="Top" Width="77" FontSize="10" Foreground="White"/>
+            <Label Content="- Antalgique" HorizontalAlignment="Left" Height="24" Margin="883,958,0,0" VerticalAlignment="Top" Width="77" FontSize="10" Foreground="White"/>
+            <Label Content="- Anticoagulants " HorizontalAlignment="Left" Height="24" Margin="883,983,0,0" VerticalAlignment="Top" Width="85" FontSize="10" Foreground="White"/>
+            <Label Content="• Examen ana-pathologique " HorizontalAlignment="Left" Height="24" Margin="859,1007,0,0" VerticalAlignment="Top" Width="137" FontSize="10" FontStyle="Italic" Foreground="White"/>
+            <Label Content="• Follow up:" HorizontalAlignment="Left" Height="24" Margin="859,1029,0,0" VerticalAlignment="Top" Width="137" FontSize="10" FontWeight="Bold" Foreground="White"/>
+            <Label Content="• 01 mois" HorizontalAlignment="Left" Height="24" Margin="836,1075,0,0" VerticalAlignment="Top" Width="61" FontSize="10" RenderTransformOrigin="0.495,-0.813" Background="#FF7F88E6" Foreground="White">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform X="-31.237" Y="31.512"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label Content="• 03 mois" HorizontalAlignment="Left" Height="24" Margin="836,1152,0,0" VerticalAlignment="Top" Width="61" FontSize="10" RenderTransformOrigin="0.5,0.5" Background="#FFA95CD4" Foreground="White">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <ComboBox x:Name="motifconversion" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="731,919,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Difficulté à la dissection "/>
+                <ComboBoxItem Content="Pediculite "/>
+                <ComboBoxItem Content="Traumatisme de la VBP"/>
+                <ComboBoxItem Content="Abcès peri vésiculaire "/>
+                <ComboBoxItem Content="Hémorragie "/>
+                <ComboBoxItem Content="ATCD de chirurgie abdominale "/>
+                <ComboBoxItem Content="Fistule cholecysto-duodénale "/>
+                <ComboBoxItem Content="Syndrome de MIRRIZI "/>
+                <ComboBoxItem Content="Suspicion d'un carcinome vésiculaire"/>
+            </ComboBox>
+            <ComboBox x:Name="dureedgtrt" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="622,970,0,0" VerticalAlignment="Top" Width="108">
+                <ComboBoxItem Content="4-10 j "/>
+                <ComboBoxItem Content="11-15j "/>
+                <ComboBoxItem Content="15- 30j "/>
+                <ComboBoxItem Content="1mois -2 mois "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="suitesop" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="731,995,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Simples "/>
+                <ComboBoxItem Content="Compliquées"/>
+                <ComboBoxItem Content="Décès "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="causedeces" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="731,1115,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Pas de décès "/>
+                <ComboBoxItem Content="En relation avec l'anesthésie"/>
+                <ComboBoxItem Content="Hémorragie "/>
+                <ComboBoxItem Content="Péritonite "/>
+                <ComboBoxItem Content="Pancréatite "/>
+                <ComboBoxItem Content="Embolie "/>
+                <ComboBoxItem Content="IDM "/>
+                <ComboBoxItem Content="NP "/>
+            </ComboBox>
+            <ComboBox x:Name="sejourshosp" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="731,1142,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="3 a 10 j "/>
+                <ComboBoxItem Content="10 a 15 j "/>
+                <ComboBoxItem Content="15 a 30 j "/>
+                <ComboBoxItem Content="&gt; 30jours"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="sejourspostop" SelectedValuePath="Content" HorizontalAlignment="Left" Height="21" Margin="731,1169,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="1j "/>
+                <ComboBoxItem Content="2 j "/>
+                <ComboBoxItem Content="2 a 7j "/>
+                <ComboBoxItem Content="&gt; 7j "/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="atbsortie" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1017,935,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui"/>
+                <ComboBoxItem Content="non"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="antalgiquesortie" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1017,962,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui"/>
+                <ComboBoxItem Content="non"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="anticoagulants" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1017,987,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui"/>
+                <ComboBoxItem Content="non"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="exanapath" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1017,1012,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="Bénign"/>
+                <ComboBoxItem Content="Malign"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Label Content="- Persistence de la douleur  " HorizontalAlignment="Left" Height="24" Margin="885,1054,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="_1moispers" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1017,1060,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui"/>
+                <ComboBoxItem Content="non"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Label Content="- Eventration" HorizontalAlignment="Left" Height="24" Margin="883,1074,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Foreground="White"/>
+            <Label Content="- Ictère" HorizontalAlignment="Left" Height="24" Margin="883,1098,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="_1moiev" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1017,1082,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui"/>
+                <ComboBoxItem Content="non"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="_1moiictere" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1017,1104,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui"/>
+                <ComboBoxItem Content="non"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Label Content="- Persistence de la douleur  " HorizontalAlignment="Left" Height="24" Margin="885,1126,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="_3moipers" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1017,1131,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui"/>
+                <ComboBoxItem Content="non"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Label Content="- Eventration" HorizontalAlignment="Left" Height="24" Margin="883,1146,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Foreground="White"/>
+            <Label Content="- Ictère" HorizontalAlignment="Left" Height="24" Margin="883,1170,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Foreground="White"/>
+            <ComboBox x:Name="_3moiev" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1017,1152,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui"/>
+                <ComboBoxItem Content="non"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <ComboBox x:Name="_3moiictere" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="1017,1174,0,0" VerticalAlignment="Top" Width="61">
+                <ComboBoxItem Content="oui"/>
+                <ComboBoxItem Content="non"/>
+                <ComboBoxItem Content="NP"/>
+            </ComboBox>
+            <Button x:Name="PDF" Content="Créer PDF" Style="{StaticResource ButtonRevealStyle}" Background="Transparent" HorizontalAlignment="Left" Height="23" Margin="1146,973,0,0" VerticalAlignment="Top" Width="78" Click="PDF_Click" Foreground="White"/>
+            <Label Content="Sexe:" HorizontalAlignment="Left" Height="24" Margin="697,61,0,0" VerticalAlignment="Top" Width="74" Foreground="White" FontSize="10"/>
+            <ComboBox x:Name="sexe" SelectedValuePath="Content" HorizontalAlignment="Left" Height="19" Margin="794,66,0,0" VerticalAlignment="Top" Width="30">
+                <ComboBoxItem Content="H"/>
+                <ComboBoxItem Content="F"/>
+            </ComboBox>
+            <control:MultiSelectComboBox Height="21" Margin="632,1043,0,160" ItemsSource="{Binding Items}" SelectedItems="{Binding SelectedItems}" x:Name="mcp" ToolTip="{Binding Path=Text, RelativeSource={RelativeSource Self}}" FontSize="10" BorderBrush="#FFACACAC" Background="#FFF7F7F7" Foreground="White" Width="108" HorizontalAlignment="Left">
+                <control:MultiSelectComboBox.DataContext>
+                    <local:ViewModel/>
+                </control:MultiSelectComboBox.DataContext>
+            </control:MultiSelectComboBox>
+            <control:MultiSelectComboBox Height="21" Margin="632,1089,0,114" ItemsSource="{Binding Items}" SelectedItems="{Binding SelectedItems}" x:Name="mcp2" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}" FontSize="10" BorderBrush="#FFACACAC" Background="#FFF7F7F7" Foreground="#FF020202" Width="108" HorizontalAlignment="Left">
+                <control:MultiSelectComboBox.DataContext>
+                    <local:ViewModel/>
+                </control:MultiSelectComboBox.DataContext>
+            </control:MultiSelectComboBox>
+            <Button x:Name="imcbtn" Content="Calcul IMC" Style="{StaticResource ButtonRevealStyle}" Background="Transparent" HorizontalAlignment="Left" Height="21" Margin="761,154,0,0" VerticalAlignment="Top" Width="63" Click="imcbtn_Click" Foreground="White" FontSize="10"/>
+            <Button x:Name="parcourir" Content="Parcourir" Style="{StaticResource ButtonRevealStyle}" Background="Transparent" HorizontalAlignment="Left" Height="23" Margin="1146,1016,0,0" VerticalAlignment="Top" Width="78" Click="parcourir_Click" Foreground="#FFFDFDFD"/>
+            <Button x:Name="exit" Content="Quitter" Style="{StaticResource ButtonRevealStyle}" Background="Transparent" HorizontalAlignment="Left" Height="23" Margin="1146,1060,0,0" VerticalAlignment="Top" Width="78" Click="exit_Click" Foreground="White"/>
+        </Grid>
+    </ScrollViewer>
+</Window>
